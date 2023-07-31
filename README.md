@@ -35,13 +35,12 @@ The API follows providing endpoints to manage products. It supports various HTTP
 
 ### API Endpoints
 Product Endpoints
--`POST /product`: Create a new product
-
--`GET /products`: Find and show all products
--`GET /product/:id`: Find and show a certain product
--`PUT /product/:id`: Find and Update a certain product
--`DELETE /product/:id`: Remove a certain product
--`DELETE /products`: Remove all products
+⋅⋅*`POST /product`: Create a new product
+⋅⋅*`GET /products`: Find and show all products
+⋅⋅*`GET /product/:id`: Find and show a certain product
+⋅⋅*`PUT /product/:id`: Find and Update a certain product
+⋅⋅*`DELETE /product/:id`: Remove a certain product
+⋅⋅*`DELETE /products`: Remove all products
 
 ## How to Run Locally
 1. Clone the repository
