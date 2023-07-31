@@ -22,20 +22,24 @@ mongoose
   });
 
 // routes
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world");
+// });
 
-app.get("/fatchProduct", async(req, res) => {
+// Find all product
+
+app.get("/products", async(req, res) => {
 	try {
-		const products = await Product.find({});
-		res.status(200).json(products);
+		const allProducts = await Product.find({});
+		res.status(200).json(allProducts);
 	} catch (error) {
 		res.status(500).json({message: error.message});
 	}
 })
 
-app.get("/fatchProduct/:id", async(req, res) =>{
+// Find a certain product by id
+
+app.get("/product/:id", async(req, res) =>{
 	try {
 		const {id} = req.params;
 		const certainProducts = await Product.findById(id);
@@ -48,9 +52,9 @@ app.get("/fatchProduct/:id", async(req, res) =>{
 	}
 })
 
-// Update Product
+// Update a Product
 
-app.put("/fatchProduct/:id", async(req, res) => {
+app.put("/product/:id", async(req, res) => {
 	try {
 		const {id} = req.params;
 		const certainProducts = await Product.findByIdAndUpdate(id, req.body);
@@ -67,7 +71,7 @@ app.put("/fatchProduct/:id", async(req, res) => {
 
 // Delete all Product
 
-app.delete("/fatchProduct", async(req, res) => {
+app.delete("/products", async(req, res) => {
 	try {
 		await Product.deleteMany({});
 		res.status(200).json({message: "success delete all product"});
@@ -78,7 +82,7 @@ app.delete("/fatchProduct", async(req, res) => {
 
 // Delete a certain Product
 
-app.delete("/fatchProduct/:id", async(req, res) => {
+app.delete("/product/:id", async(req, res) => {
 	try {
 		const {id} = req.params;
 		const certainProducts = await Product.findByIdAndDelete(id);
@@ -90,6 +94,8 @@ app.delete("/fatchProduct/:id", async(req, res) => {
 		res.status(500).json({message: error.message});
 	}
 })
+
+// Add a product
 
 app.post("/product", async(req, res) =>{
 	try {
